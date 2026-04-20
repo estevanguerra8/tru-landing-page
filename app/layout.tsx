@@ -1,9 +1,23 @@
 import type { Metadata } from "next";
+import { Playfair_Display, DM_Sans } from "next/font/google";
 import "./globals.css";
 
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "TRU Insurance - Protection You Can Trust",
-  description: "TRU Insurance provides clear, reliable coverage for what matters most. Licensed insurance agency with over 20 years of experience protecting families and businesses.",
+  title: "TRU Health Insurance — Carmen Santos, Licensed Agent",
+  description:
+    "Carmen Santos and TRU Health Insurance help individuals and families find the right health coverage. Licensed agent with over 20 years of experience. Free consultations.",
 };
 
 export default function RootLayout({
@@ -13,7 +27,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="antialiased">{children}</body>
+      <body
+        className={`${playfair.variable} ${dmSans.variable} font-sans antialiased`}
+      >
+        {children}
+      </body>
     </html>
   );
 }

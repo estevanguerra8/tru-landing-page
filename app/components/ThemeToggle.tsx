@@ -25,18 +25,18 @@ export default function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <div className="w-10 h-10 rounded-lg bg-gray-200 dark:bg-gray-800 animate-pulse" />
+      <div className="w-9 h-9 border border-violet-200/40 dark:border-violet-800/40 animate-pulse" />
     );
   }
 
   return (
     <button
       onClick={toggleTheme}
-      className="relative w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 flex items-center justify-center group"
+      className="relative w-9 h-9 border border-violet-200 dark:border-violet-800 hover:border-violet-400 dark:hover:border-violet-500 transition-all duration-200 flex items-center justify-center group"
       aria-label="Toggle theme"
     >
-      <Sun className="w-5 h-5 text-yellow-500 absolute transition-all duration-300 rotate-0 scale-100 dark:rotate-90 dark:scale-0" />
-      <Moon className="w-5 h-5 text-blue-400 absolute transition-all duration-300 rotate-90 scale-0 dark:rotate-0 dark:scale-100" />
+      <Sun className="w-4 h-4 text-violet-500 absolute transition-all duration-300 rotate-0 scale-100 dark:rotate-90 dark:scale-0" />
+      <Moon className="w-4 h-4 text-violet-400 absolute transition-all duration-300 rotate-90 scale-0 dark:rotate-0 dark:scale-100" />
     </button>
   );
 }
