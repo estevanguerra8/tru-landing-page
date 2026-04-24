@@ -15,8 +15,8 @@ import {
   Handshake,
   ChevronRight,
   HeartPulse,
-  Baby,
-  Eye,
+  ShieldPlus,
+  Pill,
   Stethoscope,
 } from "lucide-react";
 import { useState } from "react";
@@ -51,34 +51,34 @@ export default function TRUHomePage() {
   const services = [
     {
       icon: <HeartPulse className="w-5 h-5" />,
-      title: "Individual &",
-      subtitle: "Family Plans",
+      title: "Medicare",
+      subtitle: "Advantage",
       description:
-        "Personalized health coverage for you and your loved ones — from HMOs to PPOs, I help you find the right fit.",
+        "Explore all-in-one Medicare Advantage plans that may include hospital, medical, prescription, dental, vision, and hearing benefits depending on the plan.",
       number: "01",
     },
     {
-      icon: <Stethoscope className="w-5 h-5" />,
+      icon: <ShieldPlus className="w-5 h-5" />,
       title: "Medicare",
-      subtitle: "Solutions",
+      subtitle: "Supplement",
       description:
-        "Navigate Medicare with confidence. I simplify Advantage, Supplement, and Part D plans so you can make informed decisions.",
+        "Compare Medicare Supplement options designed to help cover out-of-pocket costs that Original Medicare does not fully pay.",
       number: "02",
     },
     {
-      icon: <Baby className="w-5 h-5" />,
-      title: "Life &",
-      subtitle: "Supplemental",
+      icon: <Pill className="w-5 h-5" />,
+      title: "Prescription",
+      subtitle: "Drug Plans",
       description:
-        "Protect your family's future with life insurance and supplemental coverage for the unexpected moments.",
+        "Find standalone Part D prescription drug coverage that fits your medications, pharmacy preferences, and budget.",
       number: "03",
     },
     {
-      icon: <Eye className="w-5 h-5" />,
-      title: "Dental &",
-      subtitle: "Vision",
+      icon: <Stethoscope className="w-5 h-5" />,
+      title: "Dental, Vision,",
+      subtitle: "and Hearing",
       description:
-        "Comprehensive dental and vision plans to keep your whole-body health covered beyond the basics.",
+        "Review coverage options for dental care, eye exams, glasses, contacts, hearing exams, and hearing aids.",
       number: "04",
     },
   ];
@@ -116,7 +116,7 @@ export default function TRUHomePage() {
                   TRU
                 </span>
                 <span className="text-[10px] tracking-[0.25em] text-violet-500 dark:text-violet-400 uppercase">
-                  Health Insurance
+                  Insurance Agency
                 </span>
               </div>
             </a>
@@ -242,9 +242,8 @@ export default function TRUHomePage() {
                 variants={fadeUp}
                 className="text-lg text-violet-700 dark:text-violet-300 mb-10 max-w-xl leading-relaxed"
               >
-                I&apos;m Carmen Santos, and I help individuals and families find
-                health insurance that actually fits their lives. No jargon, no
-                pressure &mdash; just honest guidance from someone who cares.
+                Guiding you through the Medicare journey with trust, respect,
+                and understanding.
               </motion.p>
 
               <motion.div
@@ -325,12 +324,12 @@ export default function TRUHomePage() {
             {[
               {
                 number: "20+",
-                label: "Years in Health Insurance",
+                label: "Years in Healthcare Industry",
                 icon: <Clock className="w-4 h-4" />,
               },
               {
-                number: "10K+",
-                label: "Families Covered",
+                number: "500+",
+                label: "Members Covered",
                 icon: <Users className="w-4 h-4" />,
               },
               {
@@ -385,7 +384,7 @@ export default function TRUHomePage() {
               className="flex items-center gap-4 mb-4"
             >
               <span className="text-xs font-medium tracking-[0.3em] text-violet-600 dark:text-violet-400 uppercase">
-                Health Coverage
+                Medicare Coverage
               </span>
               <div className="h-px w-16 bg-violet-400/50" />
             </motion.div>
@@ -393,7 +392,7 @@ export default function TRUHomePage() {
               variants={fadeUp}
               className="text-4xl sm:text-5xl font-serif font-bold text-violet-950 dark:text-violet-50 max-w-lg"
             >
-              Coverage designed around your health
+              Medicare coverage designed around your needs
             </motion.h2>
           </motion.div>
 
@@ -490,20 +489,21 @@ export default function TRUHomePage() {
                 className="text-violet-700 dark:text-violet-300 leading-relaxed mb-6"
               >
                 I&apos;m Carmen Santos, founder and licensed health insurance
-                agent at TRU. For over 20 years, I&apos;ve helped thousands of
-                individuals and families navigate the complexities of health
-                coverage &mdash; from open enrollment to life-changing moments
-                that require the right plan.
+                agent at TRU Insurance Agency. For over 20 years, I&apos;ve
+                helped thousands of individuals and families navigate the
+                complexities of the healthcare system. From helping individuals
+                choose the right plan to advocating for their individual health
+                needs, my life&apos;s work has been focused on improving the
+                quality of life for my clients.
               </motion.p>
               <motion.p
                 variants={fadeUp}
                 className="text-violet-700 dark:text-violet-300 leading-relaxed mb-8"
               >
-                I started TRU because I believe everyone deserves an advocate
-                who will take the time to explain their options, fight for the
-                best rates, and be there when it matters most. When you work
-                with me, you&apos;re not a policy number &mdash; you&apos;re
-                family.
+                I founded TRU Insurance because I believe everyone deserves an
+                advocate who will take the time to explain their options, and be
+                there when it matters most. When you work with me, you&apos;re
+                not just a policy number &mdash; you&apos;re family.
               </motion.p>
 
               <motion.div variants={fadeUp} className="space-y-0">
@@ -521,7 +521,7 @@ export default function TRUHomePage() {
                   {
                     title: "Here When It Matters",
                     description:
-                      "A claim denied? A life change? I'm a phone call away. My clients don't navigate the system alone — I handle it with them.",
+                      "A claim denied? A life change? I'm a phone call away. My clients don't navigate the system alone — we handle it together.",
                   },
                 ].map((value, index) => (
                   <div
@@ -656,7 +656,7 @@ export default function TRUHomePage() {
                         setFormData({ ...formData, phone: e.target.value })
                       }
                       className="w-full px-4 py-3 bg-transparent border border-violet-700/60 text-violet-50 placeholder-violet-600 focus:border-violet-400 focus:ring-0 transition-colors text-sm"
-                      placeholder="(555) 123-4567"
+                      placeholder="(214) 435-7908"
                     />
                   </div>
                   <div>
@@ -677,17 +677,17 @@ export default function TRUHomePage() {
                       <option value="" className="bg-[#2d0670]">
                         What are you looking for?
                       </option>
-                      <option value="individual" className="bg-[#2d0670]">
-                        Individual & Family Plans
+                      <option value="medicare-advantage" className="bg-[#2d0670]">
+                        Medicare Advantage
                       </option>
-                      <option value="medicare" className="bg-[#2d0670]">
-                        Medicare Solutions
+                      <option value="medicare-supplement" className="bg-[#2d0670]">
+                        Medicare Supplement
                       </option>
-                      <option value="life" className="bg-[#2d0670]">
-                        Life & Supplemental
+                      <option value="prescription-drug" className="bg-[#2d0670]">
+                        Prescription Drug Plans
                       </option>
-                      <option value="dental-vision" className="bg-[#2d0670]">
-                        Dental & Vision
+                      <option value="dental-vision-hearing" className="bg-[#2d0670]">
+                        Dental, Vision, and Hearing
                       </option>
                       <option value="other" className="bg-[#2d0670]">
                         Not sure — help me decide
@@ -753,7 +753,7 @@ export default function TRUHomePage() {
                         Phone
                       </p>
                       <p className="text-violet-50 font-medium">
-                        (555) 123-4567
+                        (214) 435-7908
                       </p>
                     </div>
                   </div>
@@ -766,7 +766,7 @@ export default function TRUHomePage() {
                         Email
                       </p>
                       <p className="text-violet-50 font-medium">
-                        carmen@truinsurance.com
+                        truinsuranceag@gmail.com
                       </p>
                     </div>
                   </div>
@@ -779,9 +779,9 @@ export default function TRUHomePage() {
                         Office
                       </p>
                       <p className="text-violet-50 font-medium">
-                        123 Insurance Street
+                        P.O. Box 103
                         <br />
-                        Suite 100, City, State 12345
+                        Cedar Hill, TX 75106
                       </p>
                     </div>
                   </div>
@@ -818,28 +818,26 @@ export default function TRUHomePage() {
 
       {/* Footer */}
       <footer className="py-10 px-6 lg:px-12 border-t border-violet-200/30 dark:border-violet-800/30 bg-cream-50 dark:bg-violet-950">
-        <div className="container mx-auto max-w-7xl">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex items-center gap-3">
-              <Image
-                src="/images/tru-logo.png"
-                alt="TRU"
-                width={32}
-                height={32}
-                className="w-8 h-8 object-contain flex-shrink-0"
-              />
-              <span className="text-sm font-serif font-bold tracking-wide text-violet-900 dark:text-violet-100 uppercase">
-                TRU Health Insurance
-              </span>
-            </div>
-            <div className="text-xs text-violet-500 text-center md:text-right space-y-1 tracking-wide">
-              <p>
-                &copy; 2024 TRU Health Insurance &mdash; Carmen Santos,
-                Licensed Agent
-              </p>
-              <p>Coverage subject to policy terms and conditions.</p>
-            </div>
-          </div>
+        <div className="container mx-auto max-w-3xl">
+          <p className="text-[10px] leading-relaxed text-violet-500 dark:text-violet-400 text-center mb-6">
+            We do not offer every plan available in your area. Currently, we
+            represent 4 organizations which currently offer over 38 products in
+            your area. Please contact Medicare.gov, 1-800-MEDICARE, or your
+            local State Health Insurance Assistance Program (SHIP) to get
+            information on all of your options. This is a proprietary website
+            and is not associated, endorsed or authorized by the Social Security
+            Administration, the Department of Health and Human Services or the
+            Center for Medicare and Medicaid Services. This site contains
+            decision-support content and information about Medicare, services
+            related to Medicare and services for people with Medicare. If you
+            would like to find more information about the Medicare program
+            please visit the Official U.S. Government Site for People with
+            Medicare located at http://www.medicare.gov/.
+          </p>
+          <p className="text-xs text-violet-500 text-center tracking-wide">
+            &copy; 2024 TRU Insurance Agency &mdash; Carmen Santos, Licensed
+            Agent
+          </p>
         </div>
       </footer>
     </div>

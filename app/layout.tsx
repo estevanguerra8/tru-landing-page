@@ -15,9 +15,9 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "TRU Health Insurance — Carmen Santos, Licensed Agent",
+  title: "TRU Insurance Agency — Carmen Santos, Licensed Agent",
   description:
-    "Carmen Santos and TRU Health Insurance help individuals and families find the right health coverage. Licensed agent with over 20 years of experience. Free consultations.",
+    "Carmen Santos and TRU Insurance Agency help individuals and families navigate Medicare coverage. Licensed agent with over 20 years of experience. Free consultations.",
 };
 
 export default function RootLayout({
