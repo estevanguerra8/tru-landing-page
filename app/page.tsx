@@ -464,8 +464,8 @@ export default function TRUHomePage() {
                   <Image
                     src="/images/carmen-portrait.jpeg"
                     alt="Carmen Santos"
-                    width={600}
-                    height={600}
+                    width={2963}
+                    height={4024}
                     className="w-full h-auto object-cover"
                   />
                 </div>
