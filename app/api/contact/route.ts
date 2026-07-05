@@ -67,25 +67,26 @@ We look forward to helping you find the right coverage.
   TRU Insurance Agency
   `.trim();
 
-  try {
-    await Promise.all([
-      resend.emails.send({
-        from,
-        to: "cg75sw@gmail.com",
-        replyTo: email,
-        subject: `New Appointment Request from ${name}`,
-        text: emailBody,
-      }),
-      resend.emails.send({
-        from,
-        to: email,
-        subject: "We received your request — TRU Insurance Agency",
-        text: confirmationBody,
-      }),
-    ]);
-    return NextResponse.json({ success: true });
-  } catch (error) {
-    console.error("Resend error:", error);
+  const [carmenEmail, clientEmail] = await Promise.all([
+    resend.emails.send({
+      from,
+      to: "cg75sw@gmail.com",
+      replyTo: email,
+      subject: `New Appointment Request from ${name}`,
+      text: emailBody,
+    }),
+    resend.emails.send({
+      from,
+      to: email,
+      subject: "We received your request — TRU Insurance Agency",
+      text: confirmationBody,
+    }),
+  ]);
+
+  if (carmenEmail.error || clientEmail.error) {
+    console.error("Resend error:", carmenEmail.error ?? clientEmail.error);
     return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
   }
+
+  return NextResponse.json({ success: true });
 }
