@@ -47,6 +47,7 @@ export default function TRUHomePage() {
     service: "",
     message: "",
   });
+  const [formStatus, setFormStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   const services = [
     {
@@ -83,10 +84,21 @@ export default function TRUHomePage() {
     },
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("Thank you for your inquiry. Carmen will be in touch soon.");
+    setFormStatus("loading");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) throw new Error("Failed");
+      setFormStatus("success");
+      setFormData({ name: "", email: "", phone: "", service: "", message: "" });
+    } catch {
+      setFormStatus("error");
+    }
   };
 
   return (
@@ -715,15 +727,28 @@ export default function TRUHomePage() {
                 </div>
                 <motion.button
                   type="submit"
-                  whileHover={{ scale: 1.01 }}
-                  whileTap={{ scale: 0.99 }}
-                  className="w-full px-6 py-4 bg-violet-500 text-white font-medium tracking-wide hover:bg-violet-400 transition-colors text-sm uppercase"
+                  disabled={formStatus === "loading"}
+                  whileHover={{ scale: formStatus === "loading" ? 1 : 1.01 }}
+                  whileTap={{ scale: formStatus === "loading" ? 1 : 0.99 }}
+                  className="w-full px-6 py-4 bg-violet-500 text-white font-medium tracking-wide hover:bg-violet-400 transition-colors text-sm uppercase disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Request Free Consultation
+                  {formStatus === "loading" ? "Sending…" : "Request Free Consultation"}
                 </motion.button>
-                <p className="text-xs text-violet-500 text-center">
-                  Your information is kept private and secure. No spam, ever.
-                </p>
+                {formStatus === "success" && (
+                  <p className="text-sm text-violet-300 text-center">
+                    Thank you! Carmen will be in touch within 24 hours.
+                  </p>
+                )}
+                {formStatus === "error" && (
+                  <p className="text-sm text-red-400 text-center">
+                    Something went wrong. Please call or email Carmen directly.
+                  </p>
+                )}
+                {formStatus === "idle" && (
+                  <p className="text-xs text-violet-500 text-center">
+                    Your information is kept private and secure. No spam, ever.
+                  </p>
+                )}
               </motion.form>
             </motion.div>
 
