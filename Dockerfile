@@ -9,6 +9,7 @@ RUN npm ci
 
 # Stage 2: Build the application
 FROM base AS builder
+ARG CACHEBUST=20260705b
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
