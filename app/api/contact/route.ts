@@ -1,8 +1,6 @@
 import { Resend } from "resend";
 import { NextRequest, NextResponse } from "next/server";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const SERVICE_LABELS: Record<string, string> = {
   "medicare-advantage": "Medicare Advantage",
   "medicare-supplement": "Medicare Supplement",
@@ -12,6 +10,7 @@ const SERVICE_LABELS: Record<string, string> = {
 };
 
 export async function POST(req: NextRequest) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
   const { name, email, phone, service, message } = await req.json();
 
   const serviceLabel = SERVICE_LABELS[service] || "Not specified";
